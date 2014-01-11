@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<style>
+		HTML, BODY, {
+			height:100%;
+			margin:10px;
+		}
+		BODY {
+			background:#515E7B;
+			background-image:url('http://jeffmanning.me.s3.amazonaws.com/images/background.png');
+		}
+		.pdtiles {
+			width:2000px;
+		}
+		.pdtiles [class*="pdspan"]{
+			box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			padding:10px;
+			float:left;
+			height:225px;
+		}
+		.pdtiles .first {
+			padding-top:0;
+		}
+		.pdtiles .pdspan1 {
+			width:8%;
+			max-width:150px;
+		}
+		.pdtiles .pdspan2 {
+			width:18%;
+			max-width:216px;
+		}
+		.pdtiles .pdspan3 {
+			width:28%;
+			max-width:336px;
+		}
+		.pdtiles .pdspan4 {
+			width:38%;
+			max-width:456px;
+		}
+		.pdtiles .pdspan5 {
+			width:48%;
+			max-width:576px;
+		}
+		.pdtiles .pdspan6 {
+			width:58%;
+			max-width:696px;
+		}
+		.pdtiles .pdspan7 {
+			width:68%;
+			max-width:816px;
+		}
+		.pdtiles .pdspan8 {
+			width:78%;
+			max-width:936px;
+		}
+		.pdtiles .pdspan9 {
+			width:88%;
+			max-width:1056px;
+		}
+		.pdtiles .pdspan10 {
+			width:96%;
+			max-width:1200px;
+		}
+		.pdtiles .pdrow1 {
+			height:75px
+		}
+		.pdtiles .pdrow2 {
+			height:150px;
+		}
+		.pdtiles .pdrow3 {
+			height:225px;
+		}
+		.pdtiles .story {
+			height:100%;
+		}
+		@media (max-width:767px) {
+		.pdtiles [class*="pdspan"]{
+			box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			margin:1%;
+			padding:10px;
+			float:none;
+			width:100%;
+		}
+		
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var stories = document.getElementsByClassName('story');
+			var shade = new Array('#ccccff','#aaccff','#ccffcc');
+			var num = 0;
+			
+			for(var a = 0;a < stories.length;a++) {
+				num++;
+				if(num >= shade.length)
+					num = 0;
+				stories[a].style.background = shade[num];
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div class="pdtiles">
+		<div class="tile pdspan5 pdrow3">
+			<div class="story">
+				<h2>Defeating the Monopoly</h2>
+			</div>
+		</div>
+		<div class="tile pdspan5 pdrow2 ">
+			<div class="story">
+				<h2>Allan turning</h2>
+			</div>
+		</div>
+
+		<div class="tile pdspan5 pdrow1">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+		<div class="tile pdspan10 pdrow1">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+		<div class="tile pdspan5 pdrow3">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+		<div class="tile pdspan5 pdrow2">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+				<div class="tile pdspan5 pdrow2">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+		<div class="tile pdspan5 pdrow2">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+		<div class="tile pdspan10 pdrow1">
+			<div class="story">
+				<h2>What do you really tell the internet</h2>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
