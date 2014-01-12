@@ -1,0 +1,198 @@
+HTML, BODY, {
+	height:100%;
+	margin:10px;
+}
+BODY {
+	background:#515E7B;
+	background-image:url('http://jeffmanning.me.s3.amazonaws.com/images/background.png');
+	margin-top:30px;
+}
+HEADER {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	padding:5px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.75)), color-stop(100%,rgba(0,0,0,0.5))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
+	color:#fff;
+}
+.title {
+	display:inline-block;
+	font-family: 'Share Tech',sans-serif;
+	font-size:14pt;
+	width:10%;
+}
+NAV.tags {
+	width:60%;
+	display:inline-block;
+	margin:0 5%;
+	text-align:left;
+}
+NAV.tags UL, NAV.main UL {
+	margin:0;
+	padding:0;
+}
+NAV.tags UL LI, NAV.main UL LI {
+	margin:0 8px;
+	padding:0;
+	display:inline-block;
+	font-family:sans-serif;
+}
+NAV.main {
+	width:15%;
+	display:inline-block;
+	margin:0;
+}
+.pdtiles {
+	font-family:sans-serif;
+}
+.pdtiles A {
+	text-decoration:none;
+}
+.pdtiles P {
+	margin:0;
+	padding:0;
+	margin-bottom:8px;
+}
+.pdtiles .story .story-image, .pdtiles .story .comment-image {
+	width:25%;
+	display:inline-block;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	padding:5px;
+	text-align:center;
+	vertical-align:top;
+}
+.pdtiles .story .comment-image {
+	width:15%;
+ }
+.pdtiles .story .story-image IMG, .pdtiles .story .comment-image IMG {
+	max-width:100%;
+}
+.pdtiles .story .story-image .attribution, .pdtiles .story .comment-image .user {
+	font-style: italic;
+	font-size:8pt;
+}
+.pdtiles .story .story-content, .pdtiles .story .comment-content {
+	width:74%;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	display:inline-block;
+	padding:5px;
+	vertical-align:top;
+}
+.pdtiles .story .comment-content {
+	width:84%;
+}
+.pdtiles .story H2 {
+	margin:0;
+	padding:0;
+	font-size:14pt;
+}
+.story-actions {
+	text-align:right;
+}
+.story-actions A {
+	display:inline-block;
+	margin-right:15px;
+	font-size:10pt;
+}
+.story-actions A:last-child {
+	margin-right:0;
+}
+/** STRUCTURE CODE **/
+.pdtiles {
+	width:100%;
+}
+.pdtiles [class*="pdspan"]{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	padding:10px;
+	height:225px;
+	float:left;
+}
+.pdtiles .pdspan1 {
+	width:8%;
+}
+.pdtiles .pdspan2 {
+	width:18%;
+}
+.pdtiles .pdspan3 {
+	width:28%;
+}
+.pdtiles .pdspan4 {
+	width:38%;
+}
+.pdtiles .pdspan5 {
+	width:48%;
+}
+.pdtiles .pdspan6 {
+	width:58%;
+}
+.pdtiles .pdspan7 {
+	width:68%;
+}
+.pdtiles .pdspan8 {
+	width:78%;
+}
+.pdtiles .pdspan9 {
+	width:88%;
+}
+.pdtiles .pdspan10 {
+	width:96%;
+}
+.pdtiles .pdrow1 {
+	height:75px;
+}
+.pdtiles .pdrow2 {
+	height:150px;
+}
+.pdtiles .pdrow3 {
+	height:225px;
+}
+.pdtiles .pdrow4 {
+	height:325px;
+}
+.pdtiles .story {
+	height:100%;
+}
+@media (max-width:767px) {
+	.pdtiles [class*="pdspan"]{
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		margin:1%;
+		padding:10px;
+		float:none;
+		width:100%;
+	}
+}
+.story-comment {
+	position:relative;
+	width:100%;
+}
+#comment1, #comment2 {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+}
+.hide {
+	z-index:1;
+	opacity:0;
+	transition:opacity 0.1s 1s ease;
+}
+.show {
+	transition:opacity 1s linear;
+	visibility:visible;
+	opacity:1;
+	background:#CCFFCC;
+	z-index:2;
+}

@@ -4,147 +4,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title></title>
-	<style>
-		HTML, BODY, {
-			height:100%;
-			margin:10px;
-		}
-		BODY {
-			background:#515E7B;
-			background-image:url('http://jeffmanning.me.s3.amazonaws.com/images/background.png');
-		}
-		HEADER {
-			position:fixed;
-			top:0;
-			left:0;
-			width:100%;
-			padding:5px;
-			-moz-box-sizing:border-box;
-			box-sizing:border-box;
-			background: -moz-linear-gradient(top,  rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.75)), color-stop(100%,rgba(0,0,0,0.5))); /* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* Opera 11.10+ */
-			background: -ms-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* IE10+ */
-			background: linear-gradient(to bottom,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.5) 100%); /* W3C */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
-			color:#fff;
-		}
-		.title {
-			display:inline-block;
-			font-family: 'Share Tech',sans-serif;
-			font-size:14pt;
-			width:10%;
-		}
-		NAV.tags {
-			width:60%;
-			display:inline-block;
-			margin:0 5%;
-			text-align:left;
-		}
-		NAV.tags UL, NAV.main UL {
-			margin:0;
-			padding:0;
-		}
-		NAV.tags UL LI, NAV.main UL LI {
-			margin:0 8px;
-			padding:0;
-			display:inline-block;
-			font-family:sans-serif;
-		}
-		NAV.main {
-			width:15%;
-			display:inline-block;
-			margin:0;
-		}
-		,pdtiles {
-			width:100%;
-		}
-		.pdtiles [class*="pdspan"]{
-			box-sizing:border-box;
-			-moz-box-sizing:border-box;
-			padding:10px;
-			float:left;
-			height:225px;
-		}
-		.pdtiles .first {
-			padding-top:0;
-		}
-		.pdtiles .pdspan1 {
-			width:8%;
-			max-width:150px;
-		}
-		.pdtiles .pdspan2 {
-			width:18%;
-			max-width:216px;
-		}
-		.pdtiles .pdspan3 {
-			width:28%;
-			max-width:336px;
-		}
-		.pdtiles .pdspan4 {
-			width:38%;
-			max-width:456px;
-		}
-		.pdtiles .pdspan5 {
-			width:48%;
-			max-width:576px;
-		}
-		.pdtiles .pdspan6 {
-			width:58%;
-			max-width:696px;
-		}
-		.pdtiles .pdspan7 {
-			width:68%;
-			max-width:816px;
-		}
-		.pdtiles .pdspan8 {
-			width:78%;
-			max-width:936px;
-		}
-		.pdtiles .pdspan9 {
-			width:88%;
-			max-width:1056px;
-		}
-		.pdtiles .pdspan10 {
-			width:96%;
-			max-width:1200px;
-		}
-		.pdtiles .pdrow1 {
-			height:75px
-		}
-		.pdtiles .pdrow2 {
-			height:150px;
-		}
-		.pdtiles .pdrow3 {
-			height:225px;
-		}
-		.pdtiles .story {
-			height:100%;
-		}
-		@media (max-width:767px) {
-		.pdtiles [class*="pdspan"]{
-			box-sizing:border-box;
-			-moz-box-sizing:border-box;
-			margin:1%;
-			padding:10px;
-			float:none;
-			width:100%;
-		}
-		
-		}
-	</style>
+	<link rel="stylesheet" href="css/main.css" />
 	<script type="text/javascript">
 		window.onload = function() {
 			var stories = document.getElementsByClassName('story');
 			var shade = new Array('#ccccff','#aaccff','#ccffcc');
 			var num = 0;
-			
 			for(var a = 0;a < stories.length;a++) {
 				num++;
 				if(num >= shade.length)
 					num = 0;
 				stories[a].style.background = shade[num];
+			}
+			window.setInterval(toggleComments,5000);
+		}
+		function toggleComments() {
+			var comment1 = document.getElementById('comment1');
+			var comment2 = document.getElementById('comment2');
+			if(comment1.className == 'show') {
+				comment1.className = 'hide';
+				comment2.className = 'show';
+			}
+			else {
+				comment1.className = 'show';
+				comment2.className = 'hide';
 			}
 		}
 	</script>
@@ -170,48 +53,64 @@
 	<div class="pdtiles">
 		<div class="tile pdspan5 pdrow3">
 			<div class="story">
-				<h2>Defeating the Monopoly</h2>
+				<div class='story-image'>
+					<img src="http://jeffmanning.me.s3.amazonaws.com/images/blogImages/git.png" alt='Git Logo' />
+					<span class='attribution'><a href='https://commons.wikimedia.org/wiki/File%3AGit_icon.svg'>Wikimedia Commons</a></span>
+				</div>
+				<div class='story-content'>
+					<h2><a href="#">What did I change there? - Using version Control</a></h2>
+					<p>
+						You're working on a new project, and the client asks for a new feature that wasn't in the original
+						proposal, you add the feature, and a few months down the road the requirements have changed again,
+						and the client decides that the feature just won't do.
+					</p>
+					<p class='story-actions'><a href='#'>Comment(1)</a> <a href='#'>Read More...</a></p>
+				</div>
 			</div>
 		</div>
-		<div class="tile pdspan5 pdrow2 ">
+		<div class="tile pdspan5 pdrow4 ">
 			<div class="story">
-				<h2>Allan turning</h2>
-			</div>
-		</div>
-
-		<div class="tile pdspan5 pdrow1">
-			<div class="story">
-				<h2>What do you really tell the internet</h2>
+				<div class='story-image'>
+					<img src="http://upload.wikimedia.org/wikipedia/commons/d/dc/Wheel_components.jpg" alt='Wheel Components' />
+					<span class='attribution'><a href='https://commons.wikimedia.org/wiki/File%3AGit_icon.svg'>Wikimedia Commons</a></span>
+				</div>
+				<div class='story-content'>
+					<h2><a href="#">Frameworks - How not to reinvent the wheel</a></h2>
+					<p>
+						I recently started working with the Bootstrap framework and playing with other technologies such as JQuery.
+						Both of these technologies have been out for some time, and for much of it, I shrugged them off and continued
+						working as I had always done, scratch HTML, CSS, and JS.
+					</p>
+					<p class='story-actions'><a href='#'>Comment(2)</a> <a href='#'>Read More...</a></p>
+				</div>
+				<hr />
+				<div class="story-comment">
+					<div id='comment1' class="show">
+						<div class='comment-image'>
+							<img src="images/no_profile_pic.jpg" />
+							<span class='user'>Guest - Ben</span>
+						</div>
+						<div class='comment-content'>
+							<p>Very informative! The collaboration aspect sounds especially awesome.</p>
+						</div>
+					</div>
+					
+					<div id='comment2' class="hide">
+						<div class='comment-image'>
+							<img src="images/no_profile_pic.jpg" />
+							<span class='user'>Guest - Scott</span>
+						</div>
+						<div class='comment-content'>
+							<p>I never knew that before!</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="tile pdspan10 pdrow1">
 			<div class="story">
-				<h2>What do you really tell the internet</h2>
-			</div>
-		</div>
-		<div class="tile pdspan5 pdrow3">
-			<div class="story">
-				<h2>What do you really tell the internet</h2>
-			</div>
-		</div>
-		<div class="tile pdspan5 pdrow2">
-			<div class="story">
-				<h2>What do you really tell the internet</h2>
-			</div>
-		</div>
-				<div class="tile pdspan5 pdrow2">
-			<div class="story">
-				<h2>What do you really tell the internet</h2>
-			</div>
-		</div>
-		<div class="tile pdspan5 pdrow2">
-			<div class="story">
-				<h2>What do you really tell the internet</h2>
-			</div>
-		</div>
-		<div class="tile pdspan10 pdrow1">
-			<div class="story">
-				<h2>What do you really tell the internet</h2>
+				<h2 style='float:left;margin-top:15px;margin-left:10px;'>Defeating the Giant - The Google Monopoly</h2>
+				<p class='story-actions' style='float:right;margin-top:15px;margin-right:15px;'><a href='#'>Comment(1)</a> <a href='#'>Read More...</a></p>
 			</div>
 		</div>
 	</div>
