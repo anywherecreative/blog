@@ -5,5 +5,5 @@
 	**/
 	define("PD_BLOG",true);
 	require('config.php');
-	require('database.php');
+	require('database.class.php');
 ?>

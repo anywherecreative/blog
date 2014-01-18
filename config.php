@@ -7,17 +7,17 @@
 		private $db_pass;
 		private $db_database;
 		private $db_prefix;
-		private $admin_param = "pd"; //a short paramater to include on the admin url to harden security
+		private $admin_param;
 		//multiple versions for production, testing?
 		function __CONSTRUCT() {
 			$this->title = "Pyro Design";
 			$this->db_type = "mysql";
 			$this->db_host = "localhost";
-			$this->db_user = "";
-			$this->db_pass = "";
+			$this->db_user = "pd_user";
+			$this->db_pass = "p87\"Rd6qFCrwk.`$";
 			$this->db_database = "blog";
 			$this->db_prefix = "pd_";
-			$admin_param = "pd"; //a short paramater to include on the admin url to harden security
+			$admin_param = "pd"; //a short parameter to include on the admin url to harden security
 			date_default_timezone_set ('America/Toronto');
 		}
 		

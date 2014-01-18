@@ -7,12 +7,14 @@
 * @date January 17, 2014
 * @version 1.1.0
 **/
-require_once('database.php');
+require_once('database.class.php');
 const SALT = 'Oear6+-H/1D?'; //this is the global salt for all passwords
 class User {
 	private $user; // the system username
 	private $level; //admin etc..
 	private $first;
+	private $groups;
+	private $keys;
 	/**
 	* Constructor generates the user object, inits authentication
 	* and also inits user creation
@@ -20,7 +22,7 @@ class User {
 	* @param $pass STRING the password
 	* @param $add BOOLEAN optional set to true to add the user, false to authenticate
 	**/
-	function __construct($user, $pass, $mode = false) {
+	function __construct($user, $pass, $mode = "authenticate") {
 		$pass = SALT . $pass; //add the salt
 		$pass = MD5($pass);
 
@@ -97,14 +99,8 @@ class User {
 			$result = $db->query("SELECT * FROM `#__users` WHERE `USER_USERNAME` = '$user' AND `USER_PASSWORD` = '$pass' LIMIT 1");
 			if($db->getNumRows() < 1)  //user and pass combo not correct
 				throw new Exception('User and Password combination not correct!'); //don't give hackers any information
-			else {
-				//set any other variables here
+			else 
 				$_SESSION['user'] = $user;
-				$row = $db->fetchAssoc();
-				if($row['USER_ADMIN'] == 1) {
-					$_SESSION['admin'] = true;
-				}
-			}
 		}
 	}
 	
@@ -117,6 +113,14 @@ class User {
 		$db->query("UPDATE `users` SET `USER_PASSWORD` = '$pass' WHERE `USER_USERNAME` = '$user'");
 		//add the salt to a seperate table, slows down hackers
 		$db->query("UPDATE `salt` SET `SALT_KEY` = '$salt' WHERE `SALT_USER` = '$user'");
+	}
+	
+	function forgotPassword(){
+		
+	}
+	
+	private function loadUser() {
+		$db = new Database();
 	}
 }
 ?>
