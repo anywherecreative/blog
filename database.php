@@ -101,5 +101,13 @@
 				return pg_fetch_assoc($this->result);
 			}
 		}
+		public function getNumRows() {
+			if($this->type == "mysql") {
+				return $this->result->num_rows;
+			}
+			if($this->type == "postgresql") {
+				return pg_num_rows ($this->result);
+			}
+		}
 	}
 	
