@@ -8,7 +8,7 @@
 		private $db_database;
 		private $db_prefix;
 		private $admin_param = "pd"; //a short paramater to include on the admin url to harden security
-		
+		//multiple versions for production, testing?
 		function __CONSTRUCT() {
 			$this->title = "Pyro Design";
 			$this->db_type = "mysql";
@@ -18,6 +18,7 @@
 			$this->db_database = "blog";
 			$this->db_prefix = "pd_";
 			$admin_param = "pd"; //a short paramater to include on the admin url to harden security
+			date_default_timezone_set ('America/Toronto');
 		}
 		
 		function getTitle() {
@@ -47,7 +48,13 @@
 		function getDBPrefix() {
 			return $this->db_prefix;
 		}
-		
+		/**
+		sets the time zone used in PHP, alias of date_default_timezone_set()
+		@param $zone String the time zone 
+		**/
+		function setTimeZone($zone) {
+			date_default_timezone_set ($zone);
+		}
 		function validAdminParam($param) {
 			if($this->admin_param == $param)
 				return true;

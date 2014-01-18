@@ -8,11 +8,11 @@
 		
 		function __CONSTRUCT() {
 			$conf = new Configuration();
-			$this->type = $conf->getDBType;
-			if($conf->getDBType == "mysql") {
-				$this->connection = new mysqli($conf->getDBHost(),$ocnf->getDBuser(),$conf->getDBPass(),$conf->getDBDatabase());
-				if ($mysqli->connect_error) {
-					 throw new Exception('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+			$this->type = $conf->getDBType();
+			if($this->type == "mysql") {
+				$this->connection = new mysqli($conf->getDBHost(),$conf->getDBuser(),$conf->getDBPass(),$conf->getDBDatabase());
+				if ($this->connection->connect_error) {
+					 throw new Exception('Connect Error (' . $this->connection->connect_errno . ') ' . $this->connection->connect_error);
 				}
 			}
 			if($this->type == "postgresql") {
@@ -56,6 +56,7 @@
 			$sql = str_replace ($pre, $this->prefix, $sql); 
 			if($this->type == "mysql") {
 				$this->result = $this->connection->query($sql);
+				echo($this->connection->error);
 			}
 			if($this->type == "postgresql") {
 				$this->result = pg_query($sql);
@@ -68,7 +69,7 @@
 		@param Postgresql only $types the name of the query
 		@param ... list of fields to be put into the query
 		**/
-		public function preparedQuery($sql, $types) 
+		public function preparedQuery($sql, $types) {
 			//replace the generic prefix with proper table prefix
 			$sql = str_replace ($pre, $this->prefix, $sql);  
 			if($this->type == "mysql") {

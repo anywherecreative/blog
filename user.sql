@@ -1,9 +1,10 @@
 CREATE TABLE `users` (
   `USER_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `USER_NAME` varchar(50) NOT NULL,
+  `USER_USERNAME` varchar(50) NOT NULL,
+  `USER_PASSWORD` varchar(150) NOT NULL,
   `USER_EMAIL` varchar(150) NOT NULL,
   `USER_FIRST` int(11) NOT NULL,
-  `USER_:LAST` int(11) NOT NULL,
+  `USER_LAST` int(11) NOT NULL,
   `USER_BIO` text NOT NULL,
   `USER_DOB` date NOT NULL,
   `USER_JOINED` datetime NOT NULL,

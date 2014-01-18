@@ -69,7 +69,7 @@ class User {
 			throw new Exception('User already exsists!');
 		else {
 			//add the user
-			$db->query("INSERT INTO `#__users`(`USER_USERNAME`, `USER_PASSWORD`) VALUES('$user','$pass')");
+			$db->query("INSERT INTO `#__users`(`USER_USERNAME`, `USER_PASSWORD`,`USER_JOINED`) VALUES('$user','$pass','" . date("Y-m-d H:i:s") . "')");
 			//add the salt to a seperate table, slows down hackers
 			$db->query("INSERT INTO `#__salt` VALUES('$user','$salt')");
 		}
