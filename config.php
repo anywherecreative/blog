@@ -8,16 +8,18 @@
 		private $db_database;
 		private $db_prefix;
 		private $admin_param;
+		private $tagMenuSize;
 		//multiple versions for production, testing?
 		function __CONSTRUCT() {
 			$this->title = "Pyro Design";
 			$this->db_type = "mysql";
 			$this->db_host = "localhost";
-			$this->db_user = "pd_user";
+			$this->db_user = "pd_blog";
 			$this->db_pass = "p87\"Rd6qFCrwk.`$";
-			$this->db_database = "blog";
+			$this->db_database = "pdblog";
 			$this->db_prefix = "pd_";
 			$admin_param = "pd"; //a short parameter to include on the admin url to harden security
+			$this->tagMenuSize = 5;
 			date_default_timezone_set ('America/Toronto');
 		}
 		
@@ -47,6 +49,9 @@
 		
 		function getDBPrefix() {
 			return $this->db_prefix;
+		}
+		function getTagMenuSize() {
+			return $this->tagMenuSize;
 		}
 		/**
 		sets the time zone used in PHP, alias of date_default_timezone_set()

@@ -1,7 +1,17 @@
 <?php
 require('config.php');
+require('tags.class.php');
 $conf = new Configuration();
-require('user.class.php');
-//create a test user
-$testUser = new User("jeff","testing",true);
+$tags = new Tags();
+$tags->findPopularTags();
+if($tags->hasResult()) {
+	echo('<ol>');
+	while($item = $tags->getNextMatch()) {
+		echo('<li>' . $item->getTagName() . "</li>");
+	}
+	echo('</ol>');
+}
+else {
+	echo("None Found");
+}
 ?>
