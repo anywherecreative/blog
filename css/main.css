@@ -46,6 +46,9 @@ NAV.tags UL LI, NAV.main UL LI {
 	display:inline-block;
 	font-family:sans-serif;
 }
+NAV.tags UL LI A {
+	color:#fff;
+}
 NAV.main {
 	width:15%;
 	display:inline-block;
