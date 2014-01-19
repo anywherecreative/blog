@@ -11,6 +11,7 @@ class Layout {
 		$this->template = ob_get_contents();;
 		ob_end_clean();
 		$this->parsed = null;
+		$this->keys = array();
 	}
 	
 	function loadView($view) {
@@ -19,7 +20,22 @@ class Layout {
 		$content = ob_get_contents();
 		ob_end_clean();
 		$this->parsed = str_replace("[CONTENT]",$content, $this->template);
+		$this->parsed = str_replace("[HEAD]",$this->generateHead(), $this->parsed);
 		echo($this->parsed);
+	}
+	
+	private function generateHead() {
+		global $conf;
+		$head = "<base href='" . $conf->getBaseUrl() . "' />";
+		return $head;
+	}
+	
+	function setKey($key,$value) {
+		$this->keys[$key] = $value;
+	}
+	
+	function getKey($key) {
+		return $this->keys[$key];
 	}
 }
 ?>

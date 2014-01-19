@@ -1,6 +1,4 @@
 <?php
-	require_once('database.class.php');
-	require_once('config.php');
 	class Tags {
 		private $tagList;
 		
@@ -8,12 +6,13 @@
 			$tagList = array();
 		}
 		
-		function findTag($match) {
+		function findTag($match,$number=5) {
 			$db = new Database();
 			$match = $db->escapeString($match);
-			$db->query("SELECT * FROM `#__tags` WHERE `TAG_CONTENT` LIKE '%$match%' LIMIT 5");
+			$number = (int)$number;
+			$db->query("SELECT * FROM `#__tags` WHERE `TAG_CONTENT` LIKE '%$match%' LIMIT $number");
 			while($row = $db->fetchAssoc()) {
-				$tagList[$row['TAG_CONTENT']] = new Tag($row['TAG_CONTENT']);
+				$this->tagList[$row['TAG_CONTENT']] = new Tag($row['TAG_CONTENT']);
 			}
 		}
 		

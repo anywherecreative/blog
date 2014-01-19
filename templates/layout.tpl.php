@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title></title>
+	[HEAD]
 	<link rel="stylesheet" href="css/main.css" />
 	<script type="text/javascript">
 		window.onload = function() {

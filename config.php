@@ -11,6 +11,7 @@
 		private $admin_param;
 		private $tagMenuSize;
 		private $template;
+		private $baseURL;
 		//multiple versions for production, testing?
 		function __CONSTRUCT() {
 			$this->title = "Pyro Design";
@@ -24,6 +25,7 @@
 			$this->tagMenuSize = 5;
 			$this->template = 'layout.tpl.php';
 			date_default_timezone_set ('America/Toronto');
+			$this->baseURL = 'http://www.pyrodesign.ca/dev/';
 		}
 		
 		function getTitle() {
@@ -56,6 +58,10 @@
 		
 		function getDBPrefix() {
 			return $this->db_prefix;
+		}
+		
+		function getBaseURL() {
+			return $this->baseURL;
 		}
 		function getTagMenuSize() {
 			return $this->tagMenuSize;

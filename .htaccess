@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^([^/]*)/([^/]*)\.html$ /dev/index.php?view=$1&option=$2 [L]
+RewriteRule ^([^/]*)\.html$ /dev/index.php?view=$1 [L]
