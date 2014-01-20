@@ -16,6 +16,14 @@
 			}
 		}
 		
+		function findExactTag($match) {
+			$db = new Database();
+			$match = $db->escapeString($match);
+			$db->query("SELECT * FROM `#__tags` WHERE `TAG_CONTENT` = '$match' LIMIT 1");
+			$row = $db->fetchAssoc();
+			$this->tagList[$row['TAG_CONTENT']] = new Tag($row['TAG_CONTENT']);
+		}
+		
 		function findPopularTags($number = false) {
 			$conf = new Configuration();
 			$db = new Database();
@@ -47,13 +55,16 @@
 	class Tag {
 			private $tagName;
 			private $usage;
-			
+			private $items;
 			function __CONSTRUCT($tag) {
 				$db = new Database();
 				$this->tagName = $tag;
-				$db->query("SELECT count(*) as 'usage' FROM `#__tags_article` JOIN `#__tags` ON `TA_TAG` = `TAG_ID` WHERE `TAG_CONTENT` = '" . $db->escapeString($this->tagName) . "'");
-				$row = $db->fetchAssoc();
-				$this->usage = $row['usage'];
+				$db->query("SELECT `TA_ARTICLE` FROM `#__tags_article` JOIN `#__tags` ON `TA_TAG` = `TAG_ID` WHERE `TAG_CONTENT` = '" . $db->escapeString($this->tagName) . "'");
+				$this->usage = $db->getNumRows();
+				$this->items = array();
+				while($row = $db->fetchAssoc()) {
+					$this->items[] = $row['TA_ARTICLE'];
+				}
 				unset($db); //closes connection
 			}
 			
@@ -63,6 +74,10 @@
 			
 			function getUsage() {
 				return $this->usage;
+			}
+			
+			function getArticles() {
+				return $this->items;
 			}
 		}
 ?>

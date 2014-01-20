@@ -1,3 +1,5 @@
 RewriteEngine On
-RewriteRule ^([^/]*)/([^/]*)\.html$ /dev/index.php?view=$1&option=$2 [L]
-RewriteRule ^([^/]*)\.html$ /dev/index.php?view=$1 [L]
+RewriteBase /dev/
+RewriteRule ^([^/]*)/$ index.php?view=tag&option=$1 [L]
+RewriteRule ^([^/]*)/([^/]*)\.html$ index.php?view=$1&option=$2 [L]
+RewriteRule ^([^/]*)\.html$ index.php?view=$1 [L]
