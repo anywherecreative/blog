@@ -49,6 +49,9 @@ NAV.tags UL LI, NAV.main UL LI {
 NAV.tags UL LI A {
 	color:#fff;
 }
+NAV.main UL LI A {
+	color:#ccc;
+}
 NAV.main {
 	width:15%;
 	display:inline-block;

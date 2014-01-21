@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 18, 2014 at 08:50 PM
+-- Generation Time: Jan 21, 2014 at 12:23 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.3.10-1ubuntu3.9
 
@@ -28,16 +28,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `pd_articles` (
   `ART_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ART_TITLE` int(11) NOT NULL,
+  `ART_TITLE` varchar(200) NOT NULL,
+  `ART_IMAGE` varchar(100) NOT NULL,
+  `ART_IMAGE_ALT` varchar(100) NOT NULL,
+  `ART_ATTRIBUTION` varchar(100) NOT NULL,
+  `ART_ATTRIBUTION_LINK` varchar(100) NOT NULL,
   `ART_USER` int(11) NOT NULL,
   `ART_CREATE_DATE` datetime NOT NULL,
-  `ART_PUBLISHED` datetime NOT NULL,
+  `ART_PUBLISHED` tinyint(1) NOT NULL,
   `ART_PUBLISH_DATE` datetime NOT NULL,
   `ART_UNPUBLISH_DATE` datetime NOT NULL,
   `ART_ACCESS` int(11) NOT NULL,
   `ART_CONTENT` longtext NOT NULL,
   PRIMARY KEY (`ART_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
