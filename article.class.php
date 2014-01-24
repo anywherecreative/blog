@@ -42,9 +42,16 @@ class Article {
 		$entry->addChild("time",$time);
 		$entry->addChild("author",$author);
 		$entry->addChild("content","<![CDATA[" . content . "]]>");
+		$xmlContent = $db->escapeString($this->article->asXML());
+		$db->query("UPDATE #__articles SET `ART_CONTENT` = '$xmlContent' WHERE `ART_ID` = '" . $this->id . " LIMIT 1");
 	}
 	
-	function loadArticle() {
+	function getCurrent() {
+		//gets the current article
+		$returnContent = "";
+		for($a = 0;$a < count($this->article->entry);$a++) {
+			
+		}
 	}
 }
 ?>
