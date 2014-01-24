@@ -44,5 +44,17 @@ for($a = 0;$a < count($article->entry);$a++) {
 </tbody>
 </table>
 <h2>Latest Version: <?php echo($latest);?>
+<?php
+$date = date("d-m-Y");
+$time = date("H:i:s");
+$author = 02;
+$content = $_GET['kf_content'];
+$entry = $article->addChild('entry');
+$entry->addChild("date",$date);
+$entry->addChild("time",$time);
+$entry->addChild("author",$author);
+$entry->addChild("content","<![CDATA[" . $content . "]]>");
+$article->asXML("article.xml");
+?>
 </body>
 </html>

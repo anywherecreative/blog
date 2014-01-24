@@ -36,12 +36,12 @@ class Article {
 		$date = date("d-m-Y");
 		$time = date("H:i:s");
 		$author = $db->escapeString($author);
-		$content = $db->escapeString($author);
+		$content = $db->escapeString($content);
 		$entry = $this->article->addChild('entry');
 		$entry->addChild("date",$date);
 		$entry->addChild("time",$time);
 		$entry->addChild("author",$author);
-		$entry->addChild("content","<![CDATA[" . content . "]]>");
+		$entry->addChild("content","<![CDATA[" . $content . "]]>");
 		$xmlContent = $db->escapeString($this->article->asXML());
 		$db->query("UPDATE #__articles SET `ART_CONTENT` = '$xmlContent' WHERE `ART_ID` = '" . $this->id . " LIMIT 1");
 	}
