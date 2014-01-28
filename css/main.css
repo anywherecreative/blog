@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Share+Tech);
 HTML, BODY, {
 	height:100%;
 	margin:10px;
@@ -26,7 +27,7 @@ HEADER {
 }
 .title {
 	display:inline-block;
-	font-family: 'Share Tech',sans-serif;
+	font-family: 'Share Tech', sans-serif;
 	font-size:14pt;
 	width:10%;
 }

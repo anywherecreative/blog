@@ -14,4 +14,5 @@
 		}
 	}
 	$template->setKey("suggestions",$suggest);
+	$template->setTitle("404 Page not Found");
 ?>

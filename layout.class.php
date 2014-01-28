@@ -3,7 +3,9 @@ class Layout {
 	private $template;
 	private $parsed;
 	private $keys;
-	
+	private $title;
+	private $scripts;
+	private $css;
 	function __CONSTRUCT() {
 		global $conf;
 		ob_start();
@@ -26,7 +28,11 @@ class Layout {
 	
 	private function generateHead() {
 		global $conf;
-		$head = "<base href='" . $conf->getBaseUrl() . "' />";
+		if(isset($this->title)) 
+			$head = "<title>" . $this->title . " | " . $conf->getTitle() . "</title>";
+		else
+			$head = "<title>" . $conf->getTitle() . "</title>";
+		$head .= "<base href='" . $conf->getBaseUrl() . "' />";
 		return $head;
 	}
 	
@@ -37,5 +43,15 @@ class Layout {
 	function getKey($key) {
 		return $this->keys[$key];
 	}
+	function setTitle($title) {
+		global $conf;
+		$this->title = $title . $conf->getTitle();
+	}
+	
+	function getTitle() {
+		return $this->title;
+	}
+	
+	//TO BE IMPLEMENTED css, and js loaders
 }
 ?>
