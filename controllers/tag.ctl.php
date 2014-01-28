@@ -1,6 +1,7 @@
 <?php
 	if(!isset($_GET['option'])) {
 		$template->setKey("title","Tag Not Found");
+		$template->setTitle("Tag Not Found");
 		$template->setKey("Content","<p>The tag you requested could not be found</p>");
 	}
 	else {
@@ -11,6 +12,7 @@
 		$tags->findExactTag($tag);
 		if($tags->hasResult()) {
 			$template->setKey("title","" . $tag . "\n");
+			$template->setTitle($tag);
 			$item = $tags->getNextMatch();
 			if($item->getUsage() > 0) {
 				$articles = $item->getArticles();
