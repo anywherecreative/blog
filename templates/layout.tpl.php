@@ -43,7 +43,7 @@
 			if($tags->hasResult()) {
 				echo('<ul>');
 				while($item = $tags->getNextMatch()) {
-					echo('<li><a href="/' . $item->getTagName() . '">' . $item->getTagName() . '</a></li>');
+					echo('<li><a href="' . str_replace(" ","_",$item->getTagName()) . '/">' . $item->getTagName() . '</a></li>');
 				}
 				echo('</ul>');
 			}
