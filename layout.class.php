@@ -44,8 +44,7 @@ class Layout {
 		return $this->keys[$key];
 	}
 	function setTitle($title) {
-		global $conf;
-		$this->title = $title . $conf->getTitle();
+		$this->title = $title;
 	}
 	
 	function getTitle() {

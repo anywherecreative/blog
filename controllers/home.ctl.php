@@ -1,3 +1,2 @@
 <?php
-$template->setTitle("");
 ?>
