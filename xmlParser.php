@@ -48,12 +48,17 @@ for($a = 0;$a < count($article->entry);$a++) {
 $date = date("d-m-Y");
 $time = date("H:i:s");
 $author = 02;
-$content = $_GET['kf_content'];
+$content = "<p>This is a test</p>";
 $entry = $article->addChild('entry');
+
 $entry->addChild("date",$date);
 $entry->addChild("time",$time);
 $entry->addChild("author",$author);
-$entry->addChild("content","<![CDATA[" . $content . "]]>");
+$contentContainer = $entry->addChild("content");
+$contentEntry = dom_import_simplexml($contentContainer);
+$cdata = $contentEntry->ownerDocument->createCDataSection($content);
+$contentEntry->appendChild($cdata);
+unset($contentEntry);
 $article->asXML("article.xml");
 ?>
 </body>

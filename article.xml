@@ -128,12 +128,4 @@
 			]]>
 		</content>
 	</entry>
-<entry>
-	<date>24-01-2014</date>
-	<time>22:12:41</time>
-	<author>2</author>
-	<content>&lt;![CDATA[this is a test]]&gt;
-	</content>
-</entry>
-<entry>
-	<date>24-01-2014</date><time>22:12:48</time><author>2</author><content>&lt;![CDATA[this is a second test]]&gt;</content></entry></article>
+</article>
