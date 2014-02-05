@@ -41,7 +41,11 @@ class Article {
 		$entry->addChild("date",$date);
 		$entry->addChild("time",$time);
 		$entry->addChild("author",$author);
-		$entry->addChild("content","<![CDATA[" . $content . "]]>");
+		$contentContainer = $entry->addChild("content");
+		$contentEntry = dom_import_simplexml($contentContainer);
+		$cdata = $contentEntry->ownerDocument->createCDataSection($content);
+		$contentEntry->appendChild($cdata);
+		unset($contentEntry);
 		$xmlContent = $db->escapeString($this->article->asXML());
 		$db->query("UPDATE #__articles SET `ART_CONTENT` = '$xmlContent' WHERE `ART_ID` = '" . $this->id . " LIMIT 1");
 	}
