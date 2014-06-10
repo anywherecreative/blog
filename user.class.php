@@ -4,6 +4,7 @@
 * To authenticate a user simply make a new user object with this syntax $user = new User($user,$pass)
 * To create a new user, set the optional third parameter to true $user = new User($user,$pass, true)
 * @author Jeff Manning
+* @copyright Jeff Manning 2014 
 * @date January 17, 2014
 * @version 1.1.0
 **/
